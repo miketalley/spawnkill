@@ -13,7 +13,7 @@ function Team(settings){
       players: []
     };
 
-  extend(self, settings, defaults);
+  extend(self, defaults, settings);
 }
 
 Team.prototype.addPlayer = function(player){

@@ -2,15 +2,15 @@ var extend = require('extend');
 var Weapon = require('./weapon');
 var utilities = require('./utilities');
 
-// Player Options
+// Enemy Options
 // name
 // health
 // weapon
 
-function Player(settings){
+function Enemy(settings){
   var self = this,
     defaults = {
-      name: "Player",
+      name: "Enemy",
       health: 100,
       weapon: new Weapon()
     };
@@ -18,7 +18,7 @@ function Player(settings){
   extend(self, defaults, settings);
 }
 
-Player.prototype.equipWeapon = function(weapon){
+Enemy.prototype.equipWeapon = function(weapon){
   // Add logic to check if weapon can be equipped
   // and if there is an existing weapon, put it
   // somewhere else
@@ -26,19 +26,19 @@ Player.prototype.equipWeapon = function(weapon){
   this.weapon = weapon;
 };
 
-Player.prototype.attack = function(object){
+Enemy.prototype.attack = function(object){
   var damage = utilities.calculateDamage(this, object);
 
   object.damage(damage);
 };
 
-Player.prototype.damage = function(damage){
+Enemy.prototype.damage = function(damage){
   this.health -= damage;
 };
 
-Player.prototype.isAlive = function(){
+Enemy.prototype.isAlive = function(){
   return this.health > 0;
 };
 
 
-module.exports = Player;
+module.exports = Enemy;

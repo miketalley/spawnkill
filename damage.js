@@ -1,11 +1,13 @@
-var extend = require('extend');
-var Weapon = require('./weapon');
 var utilities = require('./utilities');
 
-// Player Options
-// name
-// health
-// weapon
+module.exports = {
+  attack: function(){
+
+  },
+  damage: function(){
+
+  }
+};
 
 function Player(settings){
   var self = this,
@@ -15,7 +17,7 @@ function Player(settings){
       weapon: new Weapon()
     };
 
-  extend(self, defaults, settings);
+  extend(self, settings, defaults);
 }
 
 Player.prototype.equipWeapon = function(weapon){
@@ -30,10 +32,6 @@ Player.prototype.attack = function(object){
   var damage = utilities.calculateDamage(this, object);
 
   object.damage(damage);
-};
-
-Player.prototype.damage = function(damage){
-  this.health -= damage;
 };
 
 Player.prototype.isAlive = function(){

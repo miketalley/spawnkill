@@ -19,7 +19,7 @@ function Weapon(settings){
       speed: 10
     };
 
-  extend(self, settings, defaults);
+  extend(self, defaults, settings);
 }
 
 module.exports = Weapon;
