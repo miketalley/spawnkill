@@ -10,7 +10,8 @@ var utilities = require('./utilities');
 function Enemy(settings){
   var self = this,
     defaults = {
-      name: "Enemy",
+      name: "Spider",
+      type: "spider",
       health: 100,
       weapon: new Weapon()
     };
