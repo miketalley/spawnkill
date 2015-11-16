@@ -1,7 +1,10 @@
+var Team = require('./team');
+var Player = require('./player');
 var Weapon = require('./weapon');
 
+var team1 = new Team();
+var player1 = new Player();
 var sword = new Weapon();
 
-console.log(sword.constructor, typeof sword, sword instanceof Weapon);
-
-console.log(sword);
+player1.equipWeapon(sword);
+team1.addPlayer(player1);
